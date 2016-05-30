@@ -38,9 +38,26 @@
 		elsif character_race.to_s == "Half-Elf"
 			return rand(20..180).to_s
 		else
-			# Return age values applicable to Humans, Dragonborn, Half-Orc, Tiefling, 
+			# Return age values applicable to Humans, 
+			# Dragonborn, Half-Orc, Tiefling
 			return rand(15..80).to_s
 		end
+	end
+
+	def character_height(character_race)
+		if character_race.to_s == "Dwarf"
+			feet = rand(4..5).to_s
+		elsif character_race.to_s == "Halfling"
+			feet = rand(3..4).to_s
+		elsif character_race.to_s == "Dragonborn"
+			feed = rand(6..7).to_s	
+		else
+			# Return valid heights for Humans, Elves, 
+			# Teiflings, etc.
+			feet = rand(5..6).to_s
+		end
+		inches = rand(0..11).to_s
+		return feet+"'"+inches+"\""
 	end
 
 	def character_class()
@@ -57,6 +74,7 @@ n = character_name(character_gender)
 r = character_race
 c = character_class
 a = character_age(character_race)
+h = character_height(character_race)
 
 puts ""
 puts ""
@@ -67,7 +85,7 @@ puts "------------------------------------------------------------"
 puts ""
 puts "Vital Statistics"
 puts "------------------------------------------------------------"
-puts "Height: "
+puts "Height: "+h
 puts "Weight: "
 puts "Age: "+a
 puts "Speed: "
