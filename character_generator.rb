@@ -1,5 +1,17 @@
-	def character_name()
-		nameArray = IO.readlines("names.txt")
+	def character_gender
+    	if @gender == "M"  
+    		return "male"
+    	elsif
+    		@gender == "F"
+    		return "female"
+    	elsif
+    		@gender == "NB"
+    		return "nonbinary" 
+    	end
+    end	
+
+    def character_name(character_gender)
+		nameArray = IO.readlines(character_gender.to_s+"_names.txt")
 		randomize_array = rand(0..10)
 		return nameArray[randomize_array].chomp	
     end
@@ -16,9 +28,12 @@
 		return classArray[randomize_array].chomp
 	end
 
-n = character_name
+puts "What is your character's desired gender? [Valid options: M, F, or NB]"
+@gender = gets.chomp
+
+g = character_gender
+n = character_name(character_gender)
 r = character_race
 c = character_class
 
-
-puts "You are a "+n.to_s+", "+r.to_s+" "+c.to_s+"!"
+puts "You are "+n.to_s+", the "+g.to_s+" "+r.to_s+" "+c.to_s+"!"
