@@ -74,8 +74,8 @@
 		else
 			# Return average weight for adult Humans, Elves, etc.
 			weight = rand(130..250)
-			return weight.to_s+" lbs"
 		end
+			return weight.to_s+" lbs"
 	end
 
 	def character_speed(character_race)
@@ -98,6 +98,20 @@
 		return classArray[randomize_array].chomp.to_s
 	end
 
+	def roll_ability()
+		rollArray = []
+		4.times {
+			roll = rand(1..6)
+			rollArray << roll
+		}
+		#Sort the array of rolls
+		sortedArray = rollArray.sort
+		# Remove the lowest roll, which should be sorted as the 0th index in the array
+		sortedArray.delete_at(0)
+		# Add the rest!
+		return rollArray[0].to_i+rollArray[1].to_i+rollArray[2].to_i+rollArray[3].to_i
+	end
+
 puts "What is your character's desired gender? [Valid options: M, F, or NB]"
 @gender = gets.chomp
 
@@ -109,19 +123,24 @@ a = character_age(character_race)
 h = character_height(character_race)
 w = character_weight(character_race)
 s = character_speed(character_race)
+str = roll_ability.to_s
+dex = roll_ability.to_s
+con = roll_ability.to_s
+int = roll_ability.to_s
+wis = roll_ability.to_s
+cha = roll_ability.to_s
 
 puts ""
 puts ""
 puts ""
 puts "You are "+n+", the "+g+" "+r+" "+c+"!"
 puts "------------------------------------------------------------"
-puts ""
 puts "Vital Statistics"
 puts "------------------------------------------------------------"
-puts "Height: "+h
-puts "Weight: "+w
-puts "Age: "+a
-puts "Speed: "+s
+puts "Height:  "+h
+puts "Weight:  "+w
+puts "Age:     "+a
+puts "Speed:   "+s
 puts ""
 puts "------------------------------------------------------------"
 puts "Backstory"
@@ -133,11 +152,11 @@ puts ""
 puts "------------------------------------------------------------"
 puts "Abilities"
 puts "------------------------------------------------------------"
-puts "Strength: "
-puts "Dexterity: "
-puts "Constitution: "
-puts "Intelligence: "
-puts "Wisdom: "
-puts "Charisma: "
+puts "Strength:      "+str
+puts "Dexterity:     "+dex
+puts "Constitution:  "+con
+puts "Intelligence:  "+int
+puts "Wisdom:        "+wis
+puts "Charisma:      "+cha
 puts "------------------------------------------------------------"
 
