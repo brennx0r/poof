@@ -1,18 +1,24 @@
+	def character_name()
+		nameArray = IO.readlines("names.txt")
+		randomize_array = rand(0..10)
+		return nameArray[randomize_array].chomp	
+    end
 
 	def character_race()
-		r = ["Human","Elf","Dragonborn","Dwarf","Halfling","Gnome","Half-elf","Half-orc","Tiefling"]
-		random_array = rand(0..8)
-		return r[random_array]
+		raceArray = IO.readlines("race.txt")
+		randomize_array = rand(0..8)
+		return raceArray[randomize_array].chomp
 	end
 
 	def character_class()
-		c = ["Barbarian","Bard","Druid","Monk","Paladin","Ranger","Sorcerer","Warlock"]
-		random_array = rand(0..7)
-		return c[random_array]
+		classArray = IO.readlines("class.txt")
+		randomize_array = rand(0..7)
+		return classArray[randomize_array].chomp
 	end
 
+n = character_name
+r = character_race
+c = character_class
 
-a = character_race
-b = character_class
 
-puts "You are a "+a.to_s+" "+b.to_s+"!"
+puts "You are a "+n.to_s+", "+r.to_s+" "+c.to_s+"!"

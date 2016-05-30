@@ -1,0 +1,8 @@
+Barbarian
+Bard
+Druid
+Monk
+Paladin
+Ranger
+Sorcerer
+Warlock
