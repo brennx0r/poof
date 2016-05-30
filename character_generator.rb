@@ -46,18 +46,50 @@
 
 	def character_height(character_race)
 		if character_race.to_s == "Dwarf"
-			feet = rand(4..5).to_s
+			feet = rand(4..5)
 		elsif character_race.to_s == "Halfling"
-			feet = rand(3..4).to_s
+			feet = rand(3..4)
 		elsif character_race.to_s == "Dragonborn"
-			feed = rand(6..7).to_s	
+			feed = rand(6..7)	
 		else
 			# Return valid heights for Humans, Elves, 
 			# Teiflings, etc.
-			feet = rand(5..6).to_s
+			feet = rand(5..6)
 		end
-		inches = rand(0..11).to_s
-		return feet+"'"+inches+"\""
+		inches = rand(0..11)
+		return feet.to_s+"'"+inches.to_s+"\""
+	end
+
+	def character_weight(character_race)
+		if character_race.to_s == "Dwarf"
+			weight = rand(130..150)
+		elsif character_race.to_s == "Halfling"
+			weight = rand(35..45)
+		elsif character_race.to_s == "Dragonborn"
+			weight = rand(220..260)
+		elsif character_race.to_s == "Half-Orc"
+			weight = rand(180..250)
+		elsif character_race.to_s == "Gnome"
+			weight = rand(35..45)
+		else
+			# Return average weight for adult Humans, Elves, etc.
+			weight = rand(130..250)
+			return weight.to_s+" lbs"
+		end
+	end
+
+	def character_speed(character_race)
+		if character_race.to_s == "Dwarf"
+			speed = "25"
+		elsif character_race.to_s == "Halfling"
+			speed = "25"
+		elsif character_race.to_s == "Gnome"
+			speed = "25"
+		else 
+			# Return speed for everyone else
+			speed = "30"
+			return speed.to_s+" feet"
+		end
 	end
 
 	def character_class()
@@ -75,20 +107,21 @@ r = character_race
 c = character_class
 a = character_age(character_race)
 h = character_height(character_race)
+w = character_weight(character_race)
+s = character_speed(character_race)
 
 puts ""
 puts ""
 puts ""
 puts "You are "+n+", the "+g+" "+r+" "+c+"!"
-puts ""
 puts "------------------------------------------------------------"
 puts ""
 puts "Vital Statistics"
 puts "------------------------------------------------------------"
 puts "Height: "+h
-puts "Weight: "
+puts "Weight: "+w
 puts "Age: "+a
-puts "Speed: "
+puts "Speed: "+s
 puts ""
 puts "------------------------------------------------------------"
 puts "Backstory"
