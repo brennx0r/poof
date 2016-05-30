@@ -1,9 +1,11 @@
 Human
-Elf
+High Elf
+Wood Elf
+Dark Elf (Drow)
 Dragonborn
 Dwarf
 Halfling
 Gnome
-Half-elf
-Half-orc
+Half-Elf
+Half-Orc
 Tiefling
