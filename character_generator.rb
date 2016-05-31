@@ -153,20 +153,20 @@
 puts "What is your character's desired gender? [Valid options: M, F, or NB]"
 @gender = gets.chomp
 
-g = character_gender
-n = character_name(character_gender)
-r = character_race
-c = character_class
-age = character_age(character_race)
-h = character_height(character_race)
-w = character_weight(character_race)
-s = character_speed(character_race)
-align = character_alignment
-b = character_background
-p = character_personality(character_background)
-i = character_ideals(character_background)
-bonds = character_bonds(character_background)
-f = character_flaws(character_background)
+gender = character_gender
+name = character_name(character_gender)
+race = character_race
+klass = character_class
+age = character_age(race)
+height = character_height(race)
+weight = character_weight(race)
+speed = character_speed(race)
+alignment = character_alignment
+background = character_background
+personality = character_personality(background)
+ideals = character_ideals(background)
+bonds = character_bonds(background)
+flaws = character_flaws(background)
 str = roll_ability
 dex = roll_ability
 con = roll_ability
@@ -177,24 +177,24 @@ cha = roll_ability
 puts ""
 puts ""
 puts ""
-puts "You are "+n+", the "+g+" "+r+" "+c+"!"
+puts "You are "+name+", the "+gender+" "+race+" "+klass+"!"
 puts "------------------------------------------------------------"
 puts "Vital Statistics"
 puts "------------------------------------------------------------"
-puts "Height:    "+h
-puts "Weight:    "+w
+puts "Height:    "+height
+puts "Weight:    "+weight
 puts "Age:       "+age
-puts "Speed:     "+s
-puts "Alignment: "+align
+puts "Speed:     "+speed
+puts "Alignment: "+alignment
 puts ""
 puts "------------------------------------------------------------"
 puts "Backstory"
 puts "------------------------------------------------------------"
-puts "Background:   "+b
-puts "Personality:  "+p
-puts "Ideals:       "+i
+puts "Background:   "+background
+puts "Personality:  "+personality
+puts "Ideals:       "+ideals
 puts "Bonds:        "+bonds
-puts "Flaws:        "+f
+puts "Flaws:        "+flaws
 puts ""
 puts "------------------------------------------------------------"
 puts "Abilities"
