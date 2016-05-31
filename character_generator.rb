@@ -11,22 +11,22 @@
     end	
 
     def character_name(character_gender)
-		nameArray = IO.readlines(character_gender.to_s+"_names.txt")
+		name_array = IO.readlines(character_gender.to_s+"_names.txt")
 		randomize_array = rand(0..10)
-		return nameArray[randomize_array].chomp.to_s
+		return name_array[randomize_array].chomp.to_s
     end
 
 	def character_race()
-		raceArray = IO.readlines("race.txt")
+		race_array = IO.readlines("race.txt")
 		randomize_array = rand(0..8)
-		return raceArray[randomize_array].chomp.to_s
+		return race_array[randomize_array].chomp.to_s
 	end
 
 	def character_age(character_race)
 		if character_race.to_s == "Dwarf"
 			return rand(50..350).to_s
 		#	
-		# The Elf case isn't going to match anything for now 
+		# The Elf case isn't going to match anything.
 		# Will need to write up Issue about this.	
 		#
 		elsif character_race.to_s == "Elf"
@@ -93,21 +93,45 @@
 	end
 
 	def character_class()
-		classArray = IO.readlines("class.txt")
+		class_array = IO.readlines("class.txt")
 		randomize_array = rand(0..7)
-		return classArray[randomize_array].chomp.to_s
+		return class_array[randomize_array].chomp.to_s
 	end
 
 	def character_alignment()
-		alignmentArray = IO.readlines("alignment.txt")
+		alignment_array = IO.readlines("alignment.txt")
 		randomize_array = rand(0..8)
-		return alignmentArray[randomize_array].chomp.to_s
+		return alignment_array[randomize_array].chomp.to_s
 	end
 
 	def character_background()
-		backgroundArray = IO.readlines("background.txt")
+		background_array = IO.readlines("background.txt")
 		randomize_array = rand(0..12)
-		return backgroundArray[randomize_array].chomp.to_s
+		return background_array[randomize_array].chomp.to_s
+	end
+
+	def character_personality(character_background)
+	 	personality_array = IO.readlines(character_background.to_s+"/personality.txt")
+	 	randomize_array = rand(0..7)
+	 	return personality_array[randomize_array].chomp.to_s
+	end
+
+	def character_ideals(character_background)
+	 	ideals_array = IO.readlines(character_background.to_s+"/ideals.txt")
+	 	randomize_array = rand(0..5)
+	 	return ideals_array[randomize_array].chomp.to_s
+	end
+
+	def character_bonds(character_background)
+	 	bonds_array = IO.readlines(character_background.to_s+"/bonds.txt")
+	 	randomize_array = rand(0..5)
+	 	return bonds_array[randomize_array].chomp.to_s
+	end
+
+	def character_flaws(character_background)
+	 	flaws_array = IO.readlines(character_background.to_s+"/flaws.txt")
+	 	randomize_array = rand(0..5)
+	 	return flaws_array[randomize_array].chomp.to_s
 	end
 
 	def roll_ability()
@@ -118,10 +142,12 @@
 		}
 		#Sort the array of rolls
 		sortedArray = rollArray.sort
-		# Remove the lowest roll, which should be sorted as the 0th index in the array
+		# Remove the lowest roll, which should be 
+		# sorted as the 0th index in the array
 		sortedArray.delete_at(0)
 		# Add the rest!
-		return rollArray[0].to_i+rollArray[1].to_i+rollArray[2].to_i+rollArray[3].to_i
+		grand_total = rollArray[0].to_i+rollArray[1].to_i+rollArray[2].to_i+rollArray[3].to_i
+		return grand_total.to_s
 	end
 
 puts "What is your character's desired gender? [Valid options: M, F, or NB]"
@@ -137,12 +163,16 @@ w = character_weight(character_race)
 s = character_speed(character_race)
 align = character_alignment
 b = character_background
-str = roll_ability.to_s
-dex = roll_ability.to_s
-con = roll_ability.to_s
-int = roll_ability.to_s
-wis = roll_ability.to_s
-cha = roll_ability.to_s
+p = character_personality(character_background)
+i = character_ideals(character_background)
+bonds = character_bonds(character_background)
+f = character_flaws(character_background)
+str = roll_ability
+dex = roll_ability
+con = roll_ability
+int = roll_ability
+wis = roll_ability
+cha = roll_ability
 
 puts ""
 puts ""
@@ -160,10 +190,11 @@ puts ""
 puts "------------------------------------------------------------"
 puts "Backstory"
 puts "------------------------------------------------------------"
-puts "Background: "+b
-puts "Ideals: "
-puts "Bonds: "
-puts "Flaws: "
+puts "Background:   "+b
+puts "Personality:  "+p
+puts "Ideals:       "+i
+puts "Bonds:        "+bonds
+puts "Flaws:        "+f
 puts ""
 puts "------------------------------------------------------------"
 puts "Abilities"

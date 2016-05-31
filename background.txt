@@ -2,8 +2,8 @@ Acolyte
 Charlatan
 Criminal
 Entertainer
-Folk Hero
-Guild Artisan
+Folk-Hero
+Guild-Artisan
 Hermit
 Noble
 Outlander
