@@ -150,6 +150,42 @@
 		return grand_total.to_s
 	end
 
+	def modifier(ability)
+		if ability <= "1"
+			return "-5"
+		end
+		if ability == ("2" || "3")
+			return "-4"
+		end
+		if ability == ("4" || "5")
+			return "-3"
+		end
+		if ability == ("6" || "7")
+			return "-2"
+		end
+		if ability == ("8" || "9")
+			return "-1"
+		end
+		if ability == ("10" || "11")
+			return "0"
+		end
+		if ability == ("12" || "13")
+			return "+1"
+		end
+		if ability == ("14" || "15")
+			return "+2"
+		end
+		if ability == ("16" || "17")
+			return "+3"
+		end
+		if ability == ("18" || "19")
+			return "+4"
+		end
+		if ability >= "20" 
+			return "+5"
+		end
+	end
+
 puts "What is your character's desired gender? [Valid options: M, F, or NB]"
 @gender = gets.chomp
 
@@ -173,6 +209,12 @@ con = roll_ability
 int = roll_ability
 wis = roll_ability
 cha = roll_ability
+str_mod = modifier(str)
+dex_mod = modifier(dex)
+con_mod = modifier(con)
+int_mod = modifier(int)
+wis_mod = modifier(wis)
+cha_mod = modifier(cha)
 
 puts ""
 puts ""
@@ -199,11 +241,11 @@ puts ""
 puts "------------------------------------------------------------"
 puts "Abilities"
 puts "------------------------------------------------------------"
-puts "Strength:      "+str
-puts "Dexterity:     "+dex
-puts "Constitution:  "+con
-puts "Intelligence:  "+int
-puts "Wisdom:        "+wis
-puts "Charisma:      "+cha
+puts "Strength:      "+str+" ("+str_mod+")"
+puts "Dexterity:     "+dex+" ("+dex_mod+")"
+puts "Constitution:  "+con+" ("+con_mod+")"
+puts "Intelligence:  "+int+" ("+int_mod+")"
+puts "Wisdom:        "+wis+" ("+wis_mod+")"
+puts "Charisma:      "+cha+" ("+cha_mod+")"
 puts "------------------------------------------------------------"
 
