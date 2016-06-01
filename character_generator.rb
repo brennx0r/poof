@@ -50,7 +50,7 @@
 		elsif character_race.to_s == "Halfling"
 			feet = rand(3..4)
 		elsif character_race.to_s == "Dragonborn"
-			feed = rand(6..7)	
+			feet = rand(6..7)	
 		else
 			# Return valid heights for Humans, Elves, 
 			# Teiflings, etc.
@@ -153,36 +153,27 @@
 	def modifier(ability)
 		if ability <= "1"
 			return "-5"
-		end
-		if ability == ("2" || "3")
+		elsif ability == "2" || ability == "3"
 			return "-4"
-		end
-		if ability == ("4" || "5")
+		elsif ability == "4" || ability == "5"
 			return "-3"
-		end
-		if ability == ("6" || "7")
+		elsif ability == "6" || ability == "7"
 			return "-2"
-		end
-		if ability == ("8" || "9")
+		elsif ability == "8" || ability == "9"
 			return "-1"
-		end
-		if ability == ("10" || "11")
+		elsif ability == "10" || ability == "11"
 			return "0"
-		end
-		if ability == ("12" || "13")
+		elsif ability == "12" || ability == "13"
 			return "+1"
-		end
-		if ability == ("14" || "15")
+		elsif ability == "14" || ability == "15"
 			return "+2"
-		end
-		if ability == ("16" || "17")
+		elsif ability == "16" || ability == "17"
 			return "+3"
-		end
-		if ability == ("18" || "19")
+		elsif ability == "18" || ability == "19"
 			return "+4"
-		end
-		if ability >= "20" 
+		elsif ability == "20" || ability == "21"
 			return "+5"
+		else return "dunno"
 		end
 	end
 
@@ -219,6 +210,7 @@ cha_mod = modifier(cha)
 puts ""
 puts ""
 puts ""
+puts "POOF!"
 puts "You are "+name+", the "+gender+" "+race+" "+klass+"!"
 puts "------------------------------------------------------------"
 puts "Vital Statistics"
