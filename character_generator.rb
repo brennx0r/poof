@@ -1,4 +1,9 @@
 	def character_gender
+			if @gender.empty?
+				@gender = ["M", "F", "NB"].sample
+				puts "Gender not supplied - doing random assignment! "+@gender+" assigned."
+				return @gender	
+			end
     	if @gender == "M"  
     		return "male"
     	elsif
@@ -177,7 +182,7 @@
 		end
 	end
 
-puts "What is your character's desired gender? [Valid options: M, F, or NB]"
+puts "What is your character's desired gender? [Valid options: M, F, or NB. Or, hit Return for a randomly generated gender. 💅]"
 @gender = gets.chomp
 
 gender = character_gender
